@@ -106,9 +106,10 @@ class MarkdownPreview: Preview {
 				securityLevel: 'strict',
 				theme: isDark ? 'dark' : 'default'
 			});
-			mermaid.run({ suppressErrors: true }).catch(function(e) {
-				console.error('mermaid.run failed:', e);
-			});
+			mermaid.run({ querySelector: '.mermaid', suppressErrors: true })
+				.catch(function(e) {
+					console.error('mermaid.run failed:', e);
+				});
 		})();
 		"""
 		scripts.append(Script(content: initScript))
